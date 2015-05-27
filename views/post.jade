@@ -1,4 +1,11 @@
 extends layout
 
 block content
-	!= postContents
+	h1
+		!= postTitle
+	h3
+		!= postAuthor
+	h3
+		!= postDate
+	p
+		!= postContents

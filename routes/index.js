@@ -14,7 +14,8 @@ fs.readdir(postsDir, function(error, directoryContents){
 		var postName = filename.replace('.md', '');
 		var contents = fs.readFileSync(postsDir + filename, {encoding: 'utf-8'});
 		var metaData = contents.split("---")[1];
-		// console.log(metaData);
+		var postContents = contents.split("---")[2];
+		console.log(postContents);
 
 		var dataSplitTitle = metaData.split("\n")[1];
 		// console.log(dataSplitTitle);
@@ -24,14 +25,12 @@ fs.readdir(postsDir, function(error, directoryContents){
 		var dataSplitAuthor = metaData.split("\n")[2];
 		// console.log(dataSplitAuthor);
 		var postAuthor = dataSplitAuthor.split(":")[1];
-		console.log(postAuthor);
 
 		var dataSplitDate = metaData.split("\n")[3];
 		// console.log(dataSplitAuthor);
 		var postDate = dataSplitDate.split(":")[1];
-		console.log(postAuthor);
 
-		return {postName: postName, postTitle: postTitle, postAuthor: postAuthor, postDate: postDate, contents: marked(contents)};
+		return {postName: postName, postTitle: postTitle, postAuthor: postAuthor, postDate: postDate, postContents: postContents};
 	});
 
 	router.get('/', function(request, response){
@@ -40,7 +39,7 @@ fs.readdir(postsDir, function(error, directoryContents){
 
 	posts.forEach(function(post){
 		router.get('/' + post.postName, function(request, response){
-			response.render('post', {postContents: post.contents});
+			response.render('post', {postTitle: post.postTitle, postAuthor: post.postAuthor, postDate: post.postDate, postContents: post.postContents});
 		});
 	});
 });
