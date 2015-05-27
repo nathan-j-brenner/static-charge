@@ -1,7 +1,7 @@
 ---
-title: post_one  
+title: Monday  
 author: Nate  
-date: 2015-05-27  
+date: 2015-05-25  
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod

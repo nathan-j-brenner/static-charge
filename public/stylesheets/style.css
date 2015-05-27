@@ -3,6 +3,19 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+h1{
+	text-align: center;
+}
+
+.postData{
+	display: inline;
+	margin-right: 85%;
+}
+
 a {
-  color: #00B7FF;
+  color: #00A86B;
+  text-decoration: none;
+}
+a:hover{
+	color: #5B1100;
 }

@@ -1,5 +1,5 @@
 ---
-title: post_three  
+title: Wednesday  
 author: Nate  
 date: 2015-05-27  
 ---
