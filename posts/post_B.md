@@ -1,5 +1,5 @@
 ---
-title: "test"  
+title: post two 
 author: Nate  
 date: 2015-05-27  
 ---

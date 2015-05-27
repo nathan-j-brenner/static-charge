@@ -13,7 +13,13 @@ fs.readdir(postsDir, function(error, directoryContents){
 	var posts = directoryContents.map(function(filename){
 		var postName = filename.replace('.md', '');
 		var contents = fs.readFileSync(postsDir + filename, {encoding: 'utf-8'});
-		return {postName: postName, contents: marked(contents)};
+		var metaData = contents.split("---")[1];
+		// console.log(metaData);
+		var dataSplit = metaData.split("\n")[1];
+		// console.log(dataSplit);
+		var postTitle = dataSplit.split(":")[1];
+		console.log(postTitle);
+		return {postName: postName, postTitle: postTitle, contents: marked(contents)};
 	});
 
 	router.get('/', function(request, response){

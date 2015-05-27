@@ -4,7 +4,6 @@ block content
 	h1= title
 	each post in posts
 		h2
-			a(href=post.postName) posts.contents
-		p
-			!= post.contents
+			a(href=post.postName)
+				!= post.postTitle
 
