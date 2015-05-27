@@ -15,11 +15,23 @@ fs.readdir(postsDir, function(error, directoryContents){
 		var contents = fs.readFileSync(postsDir + filename, {encoding: 'utf-8'});
 		var metaData = contents.split("---")[1];
 		// console.log(metaData);
-		var dataSplit = metaData.split("\n")[1];
-		// console.log(dataSplit);
-		var postTitle = dataSplit.split(":")[1];
-		console.log(postTitle);
-		return {postName: postName, postTitle: postTitle, contents: marked(contents)};
+
+		var dataSplitTitle = metaData.split("\n")[1];
+		// console.log(dataSplitTitle);
+		var postTitle = dataSplitTitle.split(":")[1];
+		// console.log(postTitle);
+
+		var dataSplitAuthor = metaData.split("\n")[2];
+		// console.log(dataSplitAuthor);
+		var postAuthor = dataSplitAuthor.split(":")[1];
+		console.log(postAuthor);
+
+		var dataSplitDate = metaData.split("\n")[3];
+		// console.log(dataSplitAuthor);
+		var postDate = dataSplitDate.split(":")[1];
+		console.log(postAuthor);
+
+		return {postName: postName, postTitle: postTitle, postAuthor: postAuthor, postDate: postDate, contents: marked(contents)};
 	});
 
 	router.get('/', function(request, response){
