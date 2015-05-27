@@ -3,5 +3,8 @@ extends layout
 block content
 	h1= title
 	each post in posts
-		a(href=posts.postName)
-		!= posts.contents
+		h2
+			a(href=post.postName) posts.contents
+		p
+			!= post.contents
+
