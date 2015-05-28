@@ -5,11 +5,10 @@ block content
 		header
 			h1
 				!= postTitle
-			h3.postData
+			h3.postAuthor
 				!= postAuthor
-			h3.postData
+			h3.postDate
 				!= postDate
-		p
-			!= postContents
-	footer
-		a(href='http://localhost:3000/') home
+		.postBody
+			p
+				!= postContents

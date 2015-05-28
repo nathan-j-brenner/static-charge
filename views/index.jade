@@ -1,11 +1,12 @@
 extends layout
 
 block content
-	h1= title
-	each post in posts
-		h2
-			a(href=post.postName)
-				!= post.postTitle
-
+	body.postsPage
+		header
+			h1= title
+			each post in posts
+				.post
+					a(href=post.postName)
+						!= post.postTitle
 
 

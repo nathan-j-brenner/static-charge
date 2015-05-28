@@ -1,7 +1,12 @@
 doctype html
 html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    block content
+	head
+		title= title
+		link(rel='stylesheet', href='/stylesheets/style.css')
+	body
+		block content
+	footer
+		a.next(href= nextURL) next 
+		a.previous(href= previousURL) previous 
+
+		a.home(href='http://localhost:3000/') home

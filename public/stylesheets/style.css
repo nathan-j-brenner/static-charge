@@ -7,15 +7,34 @@ h1{
 	text-align: center;
 }
 
-.postData{
-	display: inline;
-	margin-right: 85%;
-}
-
 a {
   color: #00A86B;
   text-decoration: none;
 }
 a:hover{
-	color: #5B1100;
+	color: #A81F00;
+}
+
+.postBody{
+	margin: 0 25%;
+	width: 50%;
+}
+
+.postsPage{
+	background-image: url(/images/jade.JPG);
+	background-size: 200px 200px;
+	background-repeat: no-repeat;
+	background-position: right;
+	opacity: 0.5;
+
+}
+
+footer{
+	margin-top: 20%;
+}
+.next{
+	float:right;
+}
+.home{
+	margin: 0 50%;
 }

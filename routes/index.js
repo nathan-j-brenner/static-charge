@@ -3,6 +3,7 @@ var express = require('express');
 var router = express.Router();
 var fs = require('fs');
 var marked = require('marked');
+var moment = require('moment');
 
 var postsDir = __dirname + '/../posts/';
 fs.readdir(postsDir, function(error, directoryContents){
@@ -29,11 +30,22 @@ fs.readdir(postsDir, function(error, directoryContents){
 
 		return {postName: postName, postTitle: postTitle, postAuthor: postAuthor, postDate: postDate, postContents: marked(postContents)};
 	});
+	for(var i=0; i<posts.length; i++){
+		if (i!=0){
+			posts[i].next = posts[i-1].postName
+			posts[i].nextURL = "./"+posts[i].next
+		}
+		if(i<posts.length-1){
+			posts[i].previous = posts[i+1].postName
+			posts[i].previousURL= "./" + posts[i].previous
+		}
+	};
 
+	//creates index.html for this blog site
 	router.get('/', function(request, response){
 		response.render('index', {posts: posts, title: 'Jaded posts'})
 	});
-
+	//creates each separate page for every blog post
 	posts.forEach(function(post){
 		router.get('/' + post.postName, function(request, response){
 			response.render('post', {postTitle: post.postTitle, postAuthor: post.postAuthor, postDate: post.postDate, postContents: post.postContents});
